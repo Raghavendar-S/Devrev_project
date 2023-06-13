@@ -3,6 +3,7 @@
     width:100%;
     padding : 50px 0;
 }
+
 .container{background:#D3D3D3; border-radius: 10px; width: 40%; height: 40%;}
 .login-sec{padding: 50px 30px; position:relative;}
 .login-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: #0069c0;}

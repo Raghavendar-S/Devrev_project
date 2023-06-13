@@ -2,6 +2,7 @@
     float:left;
     width:100%;
     padding : 50px 0;
+    z-index: 0;
 }
 .container{background:#f3f1f1; border-radius: 10px; width: 40%; height: 40%;}
 .register-sec{padding: 50px 30px; position:relative;}

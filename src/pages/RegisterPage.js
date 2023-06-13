@@ -75,7 +75,6 @@ export default function RegisterPage(){
       <div>
          <NavBar/>
         <section className="register-block">
-            <div className='bg'>
             <div className="container">
                <div className="row ">
                   <div className="col register-sec">
@@ -131,7 +130,6 @@ export default function RegisterPage(){
                      </form>
                   </div>
                </div>
-            </div>
             </div>
           </section>
           </div>

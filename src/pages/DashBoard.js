@@ -3,9 +3,17 @@ import { UserDetailsApi } from "../services/Api"
 import NavBar from "../components/NavBar"
 import { logout,isAuthenticated } from "../services/Auth"
 import { Navigate, useNavigate } from "react-router-dom"
+import { addDoc, collection} from "firebase/firestore"
+import {db} from "../services/firebase";
 
 export default function DashBoardPage(){
   const navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [vaccineType, setVaccineType] = useState('');
+  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedTime, setSelectedTime] = useState('');
   
   const[user,setUser] = useState({name:"",email:"",localId:""})  
   
@@ -19,35 +27,28 @@ export default function DashBoardPage(){
       })
     })
     }
-  },[])
+  },[]);
   
   const logOutUser = ()=>{
     logout();
     navigate('/login')
   }
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [vaccineType, setVaccineType] = useState('');
-  const [selectedDate, setSelectedDate] = useState('');
-  const [selectedTime, setSelectedTime] = useState('');
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Handle form submission, e.g., send data to backend or display a success message
     alert("Your form has been submitted successfully");
 
-    console.log('Form submitted:', {
-      name,
-      email,
-      phoneNumber,
-      vaccineType,
-      selectedDate,
-      selectedTime,
-    });
-  };
+    const person = {name,email,phoneNumber:parseInt(phoneNumber),vaccineType,selectedDate,selectedTime}
+    await addDoc(collection(db,"person"),person);
+    setName('');
+    setEmail('');
+    setPhoneNumber('');
+    setVaccineType('');
+    setSelectedDate('');
+    setSelectedTime('');
+  }
 
   if(!isAuthenticated())
   {

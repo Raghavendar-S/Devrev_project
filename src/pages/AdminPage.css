@@ -1,0 +1,28 @@
+.pn{
+    margin-top: 2rem;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+th,td{
+    padding: 0.5rem;
+    text-align: left;
+    border: px solid #ccc;
+}
+
+th{
+    background-color: #eee;
+    font-weight: bold;
+}
+
+td{
+    vertical-align: middle;
+}
+
+td:last-child{
+    text-align: center;
+}

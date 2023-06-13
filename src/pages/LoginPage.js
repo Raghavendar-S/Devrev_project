@@ -65,7 +65,7 @@ export default function LoginPage (){
 
   if(isAuthenticated())
   {
-    if(inputs.email=="admin@gmail.com" && inputs.password=="admin@123")
+    if(inputs.email==="admin@gmail.com" && inputs.password==="admin@123")
     {
         return <Navigate to="/admin"/>
     }
